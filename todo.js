@@ -5,6 +5,7 @@ const toDoList=document.querySelector(".js-toDoList");
 const TODOS_LS="toDos";
 
 let toDos=[];
+let idNum=1;
 
 
 function deleteToDo(event) {
@@ -19,15 +20,6 @@ function deleteToDo(event) {
     toDos=cleanToDos;
     saveToDos();
     
-    // list에서 item을 삭제하면 남은 item들의 id가 자동으로 바뀌는데 왜인지 모르겠음!~
-    // 1234에서 id=3이 빠지면 남은 것들의 id가 124가 되는게 아니라 123으로 바뀜
-    // => 자동으로 안바뀜~~ 안바뀌는게 맞음!
-    // 해결 )
-    // let idNum=1;
-    /* function paintToDo(text){ 에서
-        const newId=idNum;
-        idNum+=1;
-    } */
 }
 function saveToDos(){
     localStorage.setItem(TODOS_LS,JSON.stringify(toDos));
@@ -38,7 +30,7 @@ function paintToDo(text){
     delBtn.innerText="❌"
     delBtn.addEventListener("click",deleteToDo);
     const span=document.createElement("span");
-    const newId=toDos.length+1;
+    const newId=idNum;
     span.innerText=text;
     li.appendChild(delBtn);
     li.appendChild(span);
@@ -52,6 +44,8 @@ function paintToDo(text){
 
     toDos.push(toDoObj);
     saveToDos();
+
+    idNum+=1;
 }
 function handleSubmit(event){
     event.preventDefault();
