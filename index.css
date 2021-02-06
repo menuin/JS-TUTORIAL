@@ -1,10 +1,56 @@
 body{
     background: #2C3A47;
+    margin-top:200px;
 }
 
+/*-------------------- clock */
+
+.js-title{
+    margin-bottom:0px;
+}
+.js-form input {
+    background:transparent;
+    border:none;
+    font: small-caps bold 40px sans-serif;
+    text-align:center;
+    color:#fff;
+    text-shadow:1px 1px #000;
+}
+.js-toDoForm input {
+    background:transparent;
+    
+    border-bottom: white 1px solid;
+    border-top: medium none;
+    border-right: medium none;
+    border-left:medium none;
+
+    font-family: sans-serif;
+    font-size: 17px;
+    font-weight:bold;
+    text-align:center;
+    color:white;
+    
+}
+input::placeholder{
+    color:rgb(212, 212, 212);
+    text-shadow:1px 1px 2px  #000;
+}
+.greetings{
+    font: small-caps bold 40px sans-serif;
+    color:#fff;
+    text-shadow:2px 2px 3px #000;
+    margin-top:0px;
+    margin-bottom:0px;
+    animation: fadeIn 0.5s linear;
+}
 h1{
-    color:#34495e;
+    color:#ffffff;
     transition:color 0.5s ease-in-out;
+    font:6em "Fira Sans", sans-serif;
+    font-weight: bold;
+    text-align:center;
+    text-shadow: 2px 2px 2px #000;
+    
 }
 
 .clicked{
@@ -17,10 +63,14 @@ h1{
 
 
 .form,
-.greetings {
+.greetings,
+.js-toDoForm {
+    text-align: center;
     display:none;
 }
-
+.js-toDoForm{
+    text-align: center;
+}
 .showing {
     display: block;
 }
@@ -42,4 +92,19 @@ h1{
     to {
         opacity:1;
     }
+}
+
+/* -------------todolist */
+.js-toDoList {
+    width:300px;
+    margin-left:auto;
+    margin-right:auto;
+    list-style-type: square;
+    color:white;
+    font-family:sans-serif;
+    font-size:12pt;
+}
+.js-toDoList button {
+    background : transparent;
+    border:none;
 }

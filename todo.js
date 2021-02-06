@@ -32,8 +32,9 @@ function paintToDo(text){
     const span=document.createElement("span");
     const newId=idNum;
     span.innerText=text;
-    li.appendChild(delBtn);
     li.appendChild(span);
+    li.appendChild(delBtn);
+    
     li.id=newId;
     toDoList.appendChild(li);
 

@@ -1,4 +1,5 @@
 const form = document.querySelector(".js-form");
+const toDoForm=document.querySelector(".js-toDoForm");
 const input=form.querySelector("input");
 const greeting=document.querySelector(".js-greetings")
 const USER_LS="currentUser";
@@ -7,7 +8,7 @@ const SHOWING_CN="showing";
 function paintGreeting(text){
     form.classList.remove(SHOWING_CN);
     greeting.classList.add(SHOWING_CN);
-    greeting.innerText=`Hello ${text}`;
+    greeting.innerText=`hello,  ${text}`;
 }
 
 function saveName(text){
@@ -18,6 +19,7 @@ function handleSubmit(){
     const currentValue=input.value;
     paintGreeting(currentValue);
     saveName(currentValue);
+    toDoForm.classList.add(SHOWING_CN);
 }
 function askForName(){
     form.classList.add(SHOWING_CN);
@@ -31,6 +33,8 @@ function loadName(){
     }
     else{  // there IS a user
         paintGreeting(currentUser);
+        toDoForm.classList.add(SHOWING_CN);
+        
     }
 }
 
