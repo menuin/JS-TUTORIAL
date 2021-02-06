@@ -7,9 +7,9 @@ function getWeather(lat,lng){
     ).then (function(response){  // wait until data is fetched
         return response.json();
     }).then (function(json){ // wait until json is ready
-        const temperature=json.main.temp;
+        const temperature=Math.floor(json.main.temp);
         const place=json.name;
-        weather.innerText=`${temperature} @ ${place}`;
+        weather.innerText=`${temperature} °C @ ${place}   `;
     })
 
 } 

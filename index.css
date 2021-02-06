@@ -1,12 +1,13 @@
 body{
     background: #2C3A47;
-    margin-top:200px;
+    margin-top:0px;
 }
 
 /*-------------------- clock */
 
 .js-title{
     margin-bottom:0px;
+    
 }
 .js-form input {
     background:transparent;
@@ -15,6 +16,10 @@ body{
     text-align:center;
     color:#fff;
     text-shadow:1px 1px #000;
+    animation: fadeIn 1s;
+    animation-delay:0.3s;
+    animation-fill-mode: forwards;
+    opacity:0;
 }
 .js-toDoForm input {
     background:transparent;
@@ -29,6 +34,10 @@ body{
     font-weight:bold;
     text-align:center;
     color:white;
+    animation: fadeIn 1s;
+    animation-delay:0.8s;
+    animation-fill-mode: forwards;
+    opacity:0;
     
 }
 input::placeholder{
@@ -41,7 +50,11 @@ input::placeholder{
     text-shadow:2px 2px 3px #000;
     margin-top:0px;
     margin-bottom:0px;
-    animation: fadeIn 0.5s linear;
+    animation: fadeIn 1s;
+    animation-delay:0.3s;
+    animation-fill-mode: forwards;
+    opacity:0;
+  
 }
 h1{
     color:#ffffff;
@@ -103,8 +116,20 @@ h1{
     color:white;
     font-family:sans-serif;
     font-size:12pt;
+    animation: fadeIn 1s;
+    animation-delay:1.3s;
+    animation-fill-mode: forwards;
+    opacity:0;
 }
 .js-toDoList button {
     background : transparent;
     border:none;
+}
+/*------------weather & location */
+.js-weather{
+    text-align:right;
+    margin-bottom:180px;
+    margin-top:10px;
+    color:white;
+    font-size:13pt;
 }
