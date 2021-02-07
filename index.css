@@ -133,3 +133,9 @@ h1{
     color:white;
     font-size:13pt;
 }
+
+/*------------------progress bar */
+.progressDiv{
+    text-align: center;
+    margin-top:120px;
+}

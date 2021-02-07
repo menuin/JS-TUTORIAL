@@ -8,7 +8,23 @@ const SHOWING_CN="showing";
 function paintGreeting(text){
     form.classList.remove(SHOWING_CN);
     greeting.classList.add(SHOWING_CN);
-    greeting.innerText=`hello,  ${text}`;
+
+    const date=new Date();
+    const hour=date.getHours();
+
+    if (hour >=5 && hour <=11) {
+        greeting.innerText=`good morning,  ${text}`;
+    }
+    else if (hour>=12 && hour <=17){
+        greeting.innerText=`good afternoon,  ${text}`;
+    }
+    else if (hour>=18 && hour <=23){
+        greeting.innerText=`good evening,  ${text}`;
+    }
+    else {
+        greeting.innerText=`hello,  ${text}`;
+    }
+    
 }
 
 function saveName(text){
