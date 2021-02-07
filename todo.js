@@ -1,11 +1,15 @@
 const toDoform=document.querySelector(".js-toDoForm");
 const toDoInput=toDoform.querySelector("input");
 const toDoList=document.querySelector(".js-toDoList");
+const progressBar=document.querySelector("#js-progress");
 
 const TODOS_LS="toDos";
+const DONE_LS="taskDone";
+const MAX_LS="maxToDo";
 
 let toDos=[];
 let idNum=1;
+
 
 
 function deleteToDo(event) {
@@ -19,6 +23,15 @@ function deleteToDo(event) {
     }); 
     toDos=cleanToDos;
     saveToDos();
+
+
+    /* -------------------progress bar */
+
+    const taskDone=Number(localStorage.getItem(DONE_LS));
+    localStorage.setItem(DONE_LS,taskDone+1);
+    progressBar.setAttribute('value',taskDone+1);
+
+
     
 }
 function saveToDos(){
@@ -47,12 +60,33 @@ function paintToDo(text){
     saveToDos();
 
     idNum+=1;
+
+
+    
+
+
 }
 function handleSubmit(event){
     event.preventDefault();
     const currentValue=toDoInput.value;
     paintToDo(currentValue);
     toDoInput.value="";
+
+    /* -----------------------progress bar */
+    const numOfToDos=document.querySelectorAll(".js-toDoList li").length;
+    let maxProgress=Math.max(numOfToDos,Number(localStorage.getItem(MAX_LS)));
+    if (numOfToDos<Number(localStorage.getItem(MAX_LS))){
+        progressBar.setAttribute('max',maxProgress+1);
+        localStorage.setItem(MAX_LS,maxProgress+1);
+    }
+    else {
+        progressBar.setAttribute('max',maxProgress);
+        localStorage.setItem(MAX_LS,maxProgress);
+    }
+   
+
+
+
 }
 function loadToDos(){
     const loadedToDos = localStorage.getItem(TODOS_LS);
@@ -63,6 +97,10 @@ function loadToDos(){
         })
     }
     
+    /* -----------------------progress bar */
+    progressBar.setAttribute('max',Number(localStorage.getItem(MAX_LS)));
+    progressBar.setAttribute('value',Number(localStorage.getItem(DONE_LS)));
+
 }
 function init(){
     loadToDos();
